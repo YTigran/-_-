@@ -1,0 +1,36 @@
+digdgfadf
+adsf
+a
+adsf
+adsf
+
+adsfdf
+
+a
+df
+
+dsaf
+
+adsfdfsadf
+
+data:
+barev aper
+en vor senc eli
+
+end:
+
+data:
+barev aper
+en vor senc eli
+
+end:
+
+#include <iostream>
+
+int main () {
+	std::cout << "[You can run me]" << std::endl;
+}
+
+adfsadfsadf
+adsfdfsadfdsfa
+dsfadsfasdf
