@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <random>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 using std::unordered_map;
@@ -47,14 +48,45 @@ private:
 	std::string key;
 };
 
+template <typename Ptr>
+void for_eachik(Ptr begin, Ptr end, void (*fptr)(Ptr)) {
+	while (begin != end) {
+		fptr(begin);
+		++begin;
+	}
+}
+
+void print(char* ch) {
+	std::cout << *ch;
+}
+
 int main () {
-	Simple_swap_method secure;
+	char str[] = "Hello World";
+	std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
 
-	std::string input = "hello";
-	std::string res1 = secure.encrypt(input);
-	std::string res2 = secure.decrypt(res1);
+	std::vector<int>::iterator begin = vec.begin();
+	std::vector<int>::iterator end = vec.end();
 
-	std::cout << "input: " << input << std::endl;
-	std::cout << "encryped: " << res1 << std::endl;
-	std::cout << "decryped: " << res2 << std::endl;
+	// for (; begin != end; ++begin) {
+	// 	std::cout << begin.operator*() << ' ';
+	// }
+
+	for (int val : vec) {
+		std::cout << val << ' ';
+	}
+
+	// for (int val : arr) {
+	// 	std::cout << val << std::endl;
+	// }
+	// for_eachik(str, str + 5, print);
+
+	// Simple_swap_method secure;
+
+	// std::string input = "hello";
+	// std::string res1 = secure.encrypt(input);
+	// std::string res2 = secure.decrypt(res1);
+
+	// std::cout << "input: " << input << std::endl;
+	// std::cout << "encryped: " << res1 << std::endl;
+	// std::cout << "decryped: " << res2 << std::endl;
 }

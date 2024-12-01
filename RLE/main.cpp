@@ -29,7 +29,7 @@ public:
 		return res;
 	}
 
-	static string decrypt(const string& text) { // not complete
+	static string decrypt(const string& text) {
 		string res;
 		int num;
 

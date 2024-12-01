@@ -1,14 +1,17 @@
 #include <iostream>
 
-int ft_gcd (int a, int b) {
+int gcd (int a, int b) {
 	if (a == 0)
 		return b;
-	return ft_gcd(b % a, a);
+	return gcd(b % a, a);
 }
 
 int main () {
-	int a = 18;
-	int b = 12;
+	int a, b;
+	std::cout << "Input first operand: ";
+	std::cin >> a;
+	std::cout << "Input second operand: ";
+	std::cin >> b;
 
-	std::cout << ft_gcd(a, b) << std::endl;
+	std::cout << "GCD(" << a << ", " << b << "): " << gcd(a, b) << std::endl;
 }
