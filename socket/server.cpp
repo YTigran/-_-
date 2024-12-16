@@ -38,13 +38,16 @@ int main() {
     }
 
     const char* response = "Hello, Client!";
-    send(client_socket, response, strlen(response), 0);
 
     char buffer[1024] = {0};
-    ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
-    if (bytes_received > 0) {
-        buffer[bytes_received] = '\0';
-        std::cout << "Received from server: " << buffer << std::endl;
+    ssize_t bytes_received;
+    while (true) {
+        bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
+        send(client_socket, response, strlen(response), 0);
+        if (bytes_received > 0) {
+            buffer[bytes_received] = '\0';
+            std::cout << "Received from client: " << buffer << std::endl;
+        }
     }
 
     close(client_socket);

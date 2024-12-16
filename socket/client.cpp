@@ -26,11 +26,15 @@ int main() {
     send(sock, message, strlen(message), 0);
 
     char buffer[1024] = {0};
-    ssize_t bytes_received = recv(sock, buffer, sizeof(buffer) - 1, 0);
-    if (bytes_received > 0) {
-        buffer[bytes_received] = '\0';
-        std::cout << "Received from server: " << buffer << std::endl;
-    }
+    ssize_t bytes_received;
+
+    // while (true) {
+        bytes_received = recv(sock, buffer, sizeof(buffer) - 1, 0);
+        if (bytes_received > 0) {
+            buffer[bytes_received] = '\0';
+            std::cout << "Received from server: " << buffer << std::endl;
+        }
+    // }
 
     close(sock);
     return 0;
